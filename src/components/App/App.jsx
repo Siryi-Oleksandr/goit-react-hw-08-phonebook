@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Container } from './App.styled';
-import ContactForm from 'components/ContactForm';
-import ContactList from 'components/ContactList';
-import Filter from 'components/Filter';
 import { Toaster } from 'react-hot-toast';
+import Layout from 'components/Layout/Layout';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const LogInPage = lazy(() => import('pages/LogInPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 function App() {
   return (
     <Container>
-      <h1>Phonebook</h1>
-      <ContactForm />
-
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
 
       <Toaster
         toastOptions={{
