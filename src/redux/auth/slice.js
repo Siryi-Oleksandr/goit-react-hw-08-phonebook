@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { register } from './operation';
 
 const initialState = {
-  user: { name: '😎', email: null },
-  token: 'qwerrty',
+  user: { name: null, email: null },
+  token: null,
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -14,9 +15,12 @@ const authSlice = createSlice({
   initialState: initialState,
   // Об'єкт редюсерів
   extraReducers: {
-    addTask(state, action) {},
-    deleteTask(state, action) {},
-    toggleCompleted(state, action) {},
+    // [register.pending](state, action) {state = state};
+    [register.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
   },
 });
 
