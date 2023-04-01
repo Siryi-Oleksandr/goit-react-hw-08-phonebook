@@ -33,6 +33,21 @@ export const register = createAsyncThunk(
   }
 );
 
+/*
+ * POST @ /users/logout
+ * headers: Authorization: Bearer token
+ */
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logout');
+    // After a successful logout, remove the token from the HTTP header
+    clearAuthHeader();
+  } catch (e) {
+    toast.error(`Something went wrong! ${e.message}`);
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
+
 // TODO /////////////////////////////////////////////////////
 
 /*
@@ -52,20 +67,6 @@ export const logIn = createAsyncThunk(
     }
   }
 );
-
-/*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- */
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-  try {
-    await axios.post('/users/logout');
-    // After a successful logout, remove the token from the HTTP header
-    clearAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
 
 /*
  * GET @ /users/current

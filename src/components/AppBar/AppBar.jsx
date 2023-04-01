@@ -1,17 +1,17 @@
+import AuthNav from 'components/AuthNav/AuthNav';
 import { Navigation } from 'components/Navigation/Navigation';
+import UserMenu from 'components/UserMenu/UserMenu';
+import { useAuth } from 'hooks/useAuth';
 import React from 'react';
 
 function AppBar() {
+  const { isLoggedIn } = useAuth();
+  console.log('isLoggedIn', isLoggedIn);
   return (
-    <div>
-      <header>
-        <>
-          <Navigation />
-          {/* <UserMenu />;
-          <AuthNav />; */}
-        </>
-      </header>
-    </div>
+    <header>
+      <Navigation />
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    </header>
   );
 }
 
