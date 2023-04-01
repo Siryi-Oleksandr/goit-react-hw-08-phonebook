@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+// axios.defaults.baseURL = 'https://goit-task-manager.herokuapp.com/';
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -34,6 +35,25 @@ export const register = createAsyncThunk(
 );
 
 /*
+ * POST @ /users/login
+ * body: { email, password }
+ */
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('/users/login', credentials);
+      // After successful login, add the token to the HTTP header
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (e) {
+      toast.error(`Something went wrong! ${e.message}`);
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+/*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
@@ -49,24 +69,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 // TODO /////////////////////////////////////////////////////
-
-/*
- * POST @ /users/login
- * body: { email, password }
- */
-export const logIn = createAsyncThunk(
-  'auth/login',
-  async (credentials, thunkAPI) => {
-    try {
-      const res = await axios.post('/users/login', credentials);
-      // After successful login, add the token to the HTTP header
-      setAuthHeader(res.data.token);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
 /*
  * GET @ /users/current
