@@ -11,7 +11,7 @@ import {
 } from 'components/ContactItem/ContactItem.styled';
 import { Controls, ControlsSave } from 'components/Control/Controls';
 import EditForm from 'components/EditForm';
-import { editContact, deleteContact } from '../../redux/contacts/contactsSlice';
+import { editContact, deleteContact } from 'redux/contacts/contactsOperation';
 
 function ContactItem({ name, number, id }) {
   const [editName, setEditName] = useState(name);

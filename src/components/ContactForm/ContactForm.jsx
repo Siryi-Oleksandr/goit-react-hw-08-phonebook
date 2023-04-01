@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormStyled, FormLabel, Input, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contacts/contactsSlice';
-import { getContacts } from '../../redux/contacts/selectors';
+import { addContact } from 'redux/contacts/contactsOperation';
+import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { toast } from 'react-hot-toast';
 import { nanoid } from '@reduxjs/toolkit';
 
@@ -12,7 +12,7 @@ const phoneRegExp =
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = evt => {
     evt.preventDefault();
