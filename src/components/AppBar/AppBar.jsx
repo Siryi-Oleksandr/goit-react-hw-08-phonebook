@@ -6,7 +6,7 @@ import React from 'react';
 
 function AppBar() {
   const { isLoggedIn } = useAuth();
-  console.log('isLoggedIn', isLoggedIn);
+
   return (
     <header>
       <Navigation />
