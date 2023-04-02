@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperation';
@@ -22,19 +23,42 @@ function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
+      <TextField
+        id="standard-basic"
+        type="text"
+        name="name"
+        label="User name"
+        variant="standard"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+      <TextField
+        id="standard-basic"
+        type="email"
+        name="email"
+        label="Email"
+        variant="standard"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+      <TextField
+        id="standard-basic"
+        type="password"
+        name="password"
+        label="Password"
+        variant="standard"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+      <Button type="submit" variant="outlined">
+        Register
+      </Button>
     </form>
   );
 }

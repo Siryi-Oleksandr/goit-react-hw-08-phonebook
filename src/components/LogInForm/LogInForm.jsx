@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperation';
@@ -21,16 +22,32 @@ function LogInForm() {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
+      <TextField
+        type="email"
+        name="email"
+        id="standard-basic"
+        label="Email"
+        variant="standard"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+      <TextField
+        type="password"
+        name="password"
+        id="standard-basic"
+        label="Password"
+        variant="standard"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
 
-      <button type="submit">Log in</button>
+      <Button type="submit" variant="outlined">
+        Log In
+      </Button>
     </form>
   );
 }
