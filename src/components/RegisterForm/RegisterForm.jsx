@@ -1,4 +1,5 @@
 import { Button, TextField } from '@mui/material';
+import { Form } from 'components/LogInForm/LoginForm.styled';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperation';
@@ -22,12 +23,12 @@ function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <Form onSubmit={handleSubmit} autoComplete="off">
       <TextField
         id="standard-basic"
         type="text"
         name="name"
-        label="User name"
+        label="User name *"
         variant="standard"
         fullWidth
         sx={{
@@ -38,7 +39,7 @@ function RegisterForm() {
         id="standard-basic"
         type="email"
         name="email"
-        label="Email"
+        label="Email *"
         variant="standard"
         fullWidth
         sx={{
@@ -49,17 +50,20 @@ function RegisterForm() {
         id="standard-basic"
         type="password"
         name="password"
-        label="Password"
+        label="Password *"
         variant="standard"
         fullWidth
-        sx={{
-          mb: '1rem',
-        }}
       />
-      <Button type="submit" variant="outlined">
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{
+          mt: '20px',
+        }}
+      >
         Register
       </Button>
-    </form>
+    </Form>
   );
 }
 

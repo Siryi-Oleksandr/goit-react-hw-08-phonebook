@@ -1,10 +1,11 @@
 import React from 'react';
-import { FormStyled, FormLabel, Input, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperation';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { toast } from 'react-hot-toast';
 import { nanoid } from '@reduxjs/toolkit';
+import { Form } from 'components/ContactForm/ContactForm.styled';
+import { Button, TextField } from '@mui/material';
 
 const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
 const phoneRegExp =
@@ -36,27 +37,44 @@ export const ContactForm = () => {
   };
 
   return (
-    <FormStyled onSubmit={handleSubmit} autoComplete="off">
-      <FormLabel>
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern={nameRegExp}
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        />
-      </FormLabel>
-      <FormLabel>
-        Number
-        <Input
-          type="tel"
-          name="number"
-          pattern={phoneRegExp}
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        />
-      </FormLabel>
-      <Button type="submit">Add contact</Button>
-    </FormStyled>
+    <Form onSubmit={handleSubmit} autoComplete="off">
+      <TextField
+        id="standard-basic"
+        type="text"
+        name="name"
+        label="Name *"
+        variant="outlined"
+        pattern={nameRegExp}
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+      <TextField
+        id="standard-basic"
+        type="tel"
+        name="number"
+        label="Number *"
+        variant="outlined"
+        pattern={phoneRegExp}
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        fullWidth
+        sx={{
+          mb: '1rem',
+        }}
+      />
+
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{
+          mt: '20px',
+        }}
+      >
+        Add contact
+      </Button>
+    </Form>
   );
 };
 

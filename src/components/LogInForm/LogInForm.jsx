@@ -2,6 +2,7 @@ import { Button, TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperation';
+import { Form } from './LoginForm.styled';
 
 function LogInForm() {
   const dispatch = useDispatch();
@@ -21,12 +22,12 @@ function LogInForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <Form onSubmit={handleSubmit} autoComplete="off">
       <TextField
         type="email"
         name="email"
         id="standard-basic"
-        label="Email"
+        label="Email *"
         variant="standard"
         fullWidth
         sx={{
@@ -37,18 +38,21 @@ function LogInForm() {
         type="password"
         name="password"
         id="standard-basic"
-        label="Password"
+        label="Password *"
         variant="standard"
         fullWidth
-        sx={{
-          mb: '1rem',
-        }}
       />
 
-      <Button type="submit" variant="outlined">
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{
+          mt: '20px',
+        }}
+      >
         Log In
       </Button>
-    </form>
+    </Form>
   );
 }
 

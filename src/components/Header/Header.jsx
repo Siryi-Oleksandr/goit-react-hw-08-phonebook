@@ -9,12 +9,7 @@ function Header() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        mb: '1rem',
-      }}
-    >
+    <AppBar position="static">
       <Toolbar>
         {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Home

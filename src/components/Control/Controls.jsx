@@ -1,15 +1,32 @@
 import PropTypes from 'prop-types';
-import { ControlWrapper, Button } from 'components/Control/Controls.styled';
+import { ControlWrapper } from 'components/Control/Controls.styled';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 
 export const Controls = ({ id, onDeleteContact, onEditContact }) => {
   return (
     <ControlWrapper>
-      <Button type="button" onClick={onEditContact}>
-        Edit
-      </Button>
-      <Button type="button" onClick={() => onDeleteContact(id)}>
-        Delete
-      </Button>
+      <IconButton
+        type="button"
+        size="large"
+        color="primary"
+        aria-label="edit"
+        onClick={onEditContact}
+      >
+        <EditIcon />
+      </IconButton>
+
+      <IconButton
+        type="button"
+        size="large"
+        color="primary"
+        aria-label="delete"
+        onClick={() => onDeleteContact(id)}
+      >
+        <DeleteIcon />
+      </IconButton>
     </ControlWrapper>
   );
 };
@@ -17,10 +34,18 @@ export const Controls = ({ id, onDeleteContact, onEditContact }) => {
 export const ControlsSave = ({ id, onDeleteContact }) => {
   return (
     <ControlWrapper>
-      <Button type="submit">Save</Button>
-      <Button type="button" onClick={() => onDeleteContact(id)}>
-        Delete
-      </Button>
+      <IconButton type="submit" size="large" color="primary" aria-label="save">
+        <SaveIcon />
+      </IconButton>
+      <IconButton
+        type="button"
+        size="large"
+        color="primary"
+        aria-label="delete"
+        onClick={() => onDeleteContact(id)}
+      >
+        <DeleteIcon />
+      </IconButton>
     </ControlWrapper>
   );
 };
