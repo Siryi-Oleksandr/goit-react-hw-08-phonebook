@@ -10,7 +10,7 @@ function Filter() {
   };
 
   return (
-    <Box sx={{ display: 'flex', gap: '20px', justifyContent: 'space-between' }}>
+    <Box sx={{ display: 'flex', gap: '20px' }}>
       <TextField
         id="standard-basic"
         type="text"

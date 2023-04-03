@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { HiUser } from 'react-icons/hi';
 import { ImPhone } from 'react-icons/im';
 import {
-  Item,
   ContactTel,
   ContactName,
   ContactInfo,
@@ -12,6 +11,7 @@ import {
 import { Controls, ControlsSave } from 'components/Control/Controls';
 import EditForm from 'components/EditForm';
 import { editContact, deleteContact } from 'redux/contacts/contactsOperation';
+import { Box } from '@mui/material';
 
 function ContactItem({ name, number, id }) {
   const [editName, setEditName] = useState(name);
@@ -43,7 +43,10 @@ function ContactItem({ name, number, id }) {
   };
 
   return (
-    <Item>
+    <Box
+      component="li"
+      sx={{ display: 'flex', justifyContent: 'space-between', mb: '10px' }}
+    >
       {/* if contact saved show contact info */}
 
       {!isEdit && (
@@ -77,7 +80,7 @@ function ContactItem({ name, number, id }) {
           <ControlsSave id={id} onDeleteContact={handleDeleteContact} />
         </EditForm>
       )}
-    </Item>
+    </Box>
   );
 }
 
