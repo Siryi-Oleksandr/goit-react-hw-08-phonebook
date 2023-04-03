@@ -50,12 +50,12 @@ function ContactItem({ name, number, id }) {
         <>
           <ContactInfo>
             <ContactName>
-              <HiUser />
+              <HiUser fill="#1976d2" />
               {name}:
             </ContactName>
 
             <ContactTel>
-              <ImPhone />
+              <ImPhone fill="#1976d2" />
               {number}
             </ContactTel>
           </ContactInfo>

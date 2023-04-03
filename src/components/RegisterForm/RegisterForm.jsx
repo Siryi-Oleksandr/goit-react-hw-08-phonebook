@@ -28,7 +28,8 @@ function RegisterForm() {
         id="standard-basic"
         type="text"
         name="name"
-        label="User name *"
+        label="User name"
+        required
         variant="standard"
         fullWidth
         sx={{
@@ -39,7 +40,8 @@ function RegisterForm() {
         id="standard-basic"
         type="email"
         name="email"
-        label="Email *"
+        label="Email"
+        required
         variant="standard"
         fullWidth
         sx={{
@@ -50,7 +52,8 @@ function RegisterForm() {
         id="standard-basic"
         type="password"
         name="password"
-        label="Password *"
+        label="Password"
+        required
         variant="standard"
         fullWidth
       />

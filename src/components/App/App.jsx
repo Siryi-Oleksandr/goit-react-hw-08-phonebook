@@ -1,7 +1,8 @@
 import React, { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { GlobalStyle } from 'components/GlobalStyle';
+import { Global } from '@emotion/react';
+import globalStyles from 'components/GlobalStyle';
 import { Toaster } from 'react-hot-toast';
 import Layout from 'components/Layout/Layout';
 import { refreshUser } from 'redux/auth/authOperation';
@@ -10,11 +11,12 @@ import Loader from 'components/Loader/Loader';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { Container } from '@mui/material';
+import NotFound from 'components/NotFound/NotFound';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const ContactsPage = lazy(() => import('pages/ContactsPage'));
-const LogInPage = lazy(() => import('pages/LogInPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
+const LogInPage = lazy(() => import('pages/LogInPage/LogInPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +58,7 @@ function App() {
             }
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Toaster
@@ -63,7 +66,7 @@ function App() {
           duration: 3000,
         }}
       />
-      <GlobalStyle />
+      <Global styles={globalStyles} />
     </Container>
   );
 }

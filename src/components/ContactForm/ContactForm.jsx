@@ -42,10 +42,13 @@ export const ContactForm = () => {
         id="standard-basic"
         type="text"
         name="name"
-        label="Name *"
+        label="Name"
         variant="outlined"
-        pattern={nameRegExp}
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+        inputProps={{
+          inputMode: 'text',
+          pattern: nameRegExp,
+        }}
         fullWidth
         sx={{
           mb: '1rem',
@@ -55,10 +58,13 @@ export const ContactForm = () => {
         id="standard-basic"
         type="tel"
         name="number"
-        label="Number *"
+        label="Number"
         variant="outlined"
-        pattern={phoneRegExp}
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        required
+        inputProps={{
+          inputMode: 'text',
+          pattern: phoneRegExp,
+        }}
         fullWidth
         sx={{
           mb: '1rem',

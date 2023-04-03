@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Item = styled.li`
   min-width: 380px;
@@ -22,7 +22,7 @@ export const ContactName = styled.p`
   gap: 10px;
   max-width: 245px;
   font-family: 'Segoe UI';
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
 `;
 export const ContactTel = styled.p`
@@ -30,7 +30,7 @@ export const ContactTel = styled.p`
   gap: 10px;
   max-width: 245px;
   font-family: 'Segoe UI';
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 export const ContactEditInfo = styled.form`

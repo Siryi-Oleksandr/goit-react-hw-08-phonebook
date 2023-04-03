@@ -27,7 +27,8 @@ function LogInForm() {
         type="email"
         name="email"
         id="standard-basic"
-        label="Email *"
+        label="Email"
+        required
         variant="standard"
         fullWidth
         sx={{
@@ -38,7 +39,8 @@ function LogInForm() {
         type="password"
         name="password"
         id="standard-basic"
-        label="Password *"
+        label="Password"
+        required
         variant="standard"
         fullWidth
       />

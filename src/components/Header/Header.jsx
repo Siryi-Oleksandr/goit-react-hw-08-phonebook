@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import AuthNav from 'components/AuthNav/AuthNav';
 import { Navigation } from 'components/Navigation/Navigation';
 import UserMenu from 'components/UserMenu/UserMenu';
@@ -11,12 +11,6 @@ function Header() {
   return (
     <AppBar position="static">
       <Toolbar>
-        {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Home
-        </Typography>
-        <Button color="inherit">Register</Button>
-        <Button color="inherit">Login</Button> */}
-
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </Toolbar>

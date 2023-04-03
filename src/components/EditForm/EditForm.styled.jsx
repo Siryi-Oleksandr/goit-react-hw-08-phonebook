@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
 
 export const EditFormStyled = styled(Form)`
@@ -15,7 +15,7 @@ export const EditFormLabel = styled.label`
   align-items: center;
   gap: 10px;
   font-family: 'Segoe UI';
-  font-size: 12px;
+  font-size: 14px;
 `;
 export const EditInput = styled(Field)`
   width: 180px;
