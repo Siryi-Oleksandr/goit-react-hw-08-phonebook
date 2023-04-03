@@ -21,8 +21,8 @@ function HomePage() {
         Welcome to manager you own contacts.
       </Typography>
       <Typography variant="h4" component="p" style={{ paddingTop: '50px' }}>
-        If you want to have more possibility to manage your contacts, please{' '}
-        <LinkStyled to="/login">Log in</LinkStyled> to you cabinet or{' '}
+        If you want to have more possibility to manage your contacts, <br />{' '}
+        please <LinkStyled to="/login">Log in</LinkStyled> to you cabinet or{' '}
         <LinkStyled to="/register">Register</LinkStyled>
       </Typography>
     </Box>
