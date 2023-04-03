@@ -60,6 +60,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       <Toaster
         toastOptions={{
           duration: 3000,
