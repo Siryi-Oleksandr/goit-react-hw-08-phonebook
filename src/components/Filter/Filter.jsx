@@ -1,5 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'redux/contacts/filterSlice';
+import {
+  filterContacts,
+  filterContactsByNumber,
+} from 'redux/contacts/filterSlice';
 import { Box, TextField } from '@mui/material';
 
 function Filter() {
@@ -7,6 +10,10 @@ function Filter() {
 
   const handleSetFilter = evt => {
     dispatch(filterContacts(evt.currentTarget.value));
+  };
+
+  const handleSetFilterByNumber = evt => {
+    dispatch(filterContactsByNumber(evt.currentTarget.value));
   };
 
   return (
@@ -27,7 +34,7 @@ function Filter() {
         type="text"
         label="Find contacts by number"
         variant="outlined"
-        onChange={handleSetFilter}
+        onChange={handleSetFilterByNumber}
         sx={{
           mb: '1rem',
         }}

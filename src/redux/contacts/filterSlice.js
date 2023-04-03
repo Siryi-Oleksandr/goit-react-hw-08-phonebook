@@ -7,8 +7,11 @@ export const filterSlice = createSlice({
     filterContacts(state, action) {
       return (state = action.payload);
     },
+    filterContactsByNumber(state, action) {
+      return (state = action.payload);
+    },
   },
 });
 
 export const filterReducer = filterSlice.reducer;
-export const { filterContacts } = filterSlice.actions;
+export const { filterContacts, filterContactsByNumber } = filterSlice.actions;
