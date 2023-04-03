@@ -28,7 +28,9 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
-      toast.error(`Something went wrong! ${e.message}`);
+      toast.error(
+        `Registration failed. Please check your information and try again.`
+      );
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -47,7 +49,10 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
-      toast.error(`Something went wrong! ${e.message}`);
+      toast.error(
+        `Invalid login credentials. Please check your username and password and try again.`
+      );
+      console.dir(e);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -91,6 +96,7 @@ export const refreshUser = createAsyncThunk(
       const response = await axios.get('/users/current');
       return response.data;
     } catch (e) {
+      toast.error(`Something went wrong! ${e.message}`);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
