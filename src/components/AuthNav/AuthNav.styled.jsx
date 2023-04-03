@@ -15,6 +15,6 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    border-bottom: 3px solid orangered;
+    border-bottom: 3px solid #9c27b0;
   }
 `;

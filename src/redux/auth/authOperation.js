@@ -52,7 +52,6 @@ export const logIn = createAsyncThunk(
       toast.error(
         `Invalid login credentials. Please check your username and password and try again.`
       );
-      console.dir(e);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
