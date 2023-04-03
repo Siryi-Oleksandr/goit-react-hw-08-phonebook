@@ -11,7 +11,7 @@ import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { Container } from '@mui/material';
 
-const HomePage = lazy(() => import('pages/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 const LogInPage = lazy(() => import('pages/LogInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
