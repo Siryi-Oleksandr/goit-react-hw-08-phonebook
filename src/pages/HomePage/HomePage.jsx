@@ -14,13 +14,25 @@ function HomePage() {
         textAlign: 'center',
       }}
     >
-      <Typography variant="h2" component="h1" style={{ paddingTop: '150px' }}>
+      <Typography
+        variant="h2"
+        component="h1"
+        style={{ color: '#1976d2', fontWeight: 600, paddingTop: '150px' }}
+      >
         Phonebook
       </Typography>
-      <Typography variant="h3" component="p" style={{ paddingTop: '50px' }}>
+      <Typography
+        variant="h3"
+        component="p"
+        style={{ color: '#1976d2', paddingTop: '50px' }}
+      >
         Welcome to manager you own contacts.
       </Typography>
-      <Typography variant="h4" component="p" style={{ paddingTop: '50px' }}>
+      <Typography
+        variant="h4"
+        component="p"
+        style={{ color: '#1976d2', paddingTop: '50px' }}
+      >
         If you want to have more possibility to manage your contacts, <br />{' '}
         please <LinkStyled to="/login">Log in</LinkStyled> to you cabinet or{' '}
         <LinkStyled to="/register">Register</LinkStyled>

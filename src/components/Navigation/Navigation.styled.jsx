@@ -10,6 +10,7 @@ export const Link = styled(NavLink)`
   padding: 8px 8px;
   text-decoration: none;
   font-weight: 500;
+  font-size: 18px;
 
   &.active {
     color: white;
